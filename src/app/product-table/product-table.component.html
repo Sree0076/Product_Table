@@ -1,0 +1,25 @@
+<div class="container">
+  <input [(ngModel)]="search_item" type="text" placeholder="Search Here ...">
+
+  <table class="table table-bordered table-light">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Tittle</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of Products | searchfilter:search_item ; track item.id ) {
+      <tr appProductdirectives >
+        <td >{{$index+1}}</td>
+        <td >{{item.title}}</td>
+        <td >{{item.category}}</td>
+        <td >{{item.price}}</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+</div>
+
